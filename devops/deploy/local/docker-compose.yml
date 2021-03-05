@@ -1,0 +1,6 @@
+version: '3'
+services:
+    task-service:
+        tty: true
+        privileged: true
+        stdin_open: true

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  task-service:
+    build:
+      context: ../../../
+      dockerfile: devops/build/php/Dockerfile
+    ports:
+      - 8080:80
+    env_file:
+      - ../envs/local.env
+    volumes:
+      - "./../../../project/task-service:/var/www/project:cached"
