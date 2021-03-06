@@ -15,7 +15,8 @@ UP\Down services
   ./devops/bin/down.sh 
 ```
 
-## How run Local RoadRunner
+## How run Local RoadRunner 
+(Version 1.8.4 because `baldinof/roadrunner-bundle` not supports 2.0.0. version)
 ```bash
-  bin/rr serve -c .rr.dev.yaml --debug
+  /usr/bin/rr serve -c .rr.dev.yaml --debug
 ```

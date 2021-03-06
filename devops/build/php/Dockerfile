@@ -15,6 +15,7 @@ RUN apk add --no-cache autoconf openssl-dev g++ make pcre-dev icu-dev zlib-dev l
     && apk del --purge autoconf g++ make
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=spiralscout/roadrunner:1.8.4 /usr/bin/rr /usr/bin/rr
 
 ##### add configuration
 COPY devops/build/php/config /usr/local/etc/php/conf.d
