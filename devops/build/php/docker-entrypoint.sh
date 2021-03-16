@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 set -o pipefail
@@ -19,5 +19,9 @@ if [ "$APP_RUN_SERVER" == "yes" ]; then
     /usr/bin/rr serve rr.yaml
   fi
 else
-   while sleep 3600; do :; done
+   sleep infinity &
 fi
+
+child=$!
+
+wait $child
