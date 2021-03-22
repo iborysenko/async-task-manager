@@ -20,3 +20,14 @@ UP\Down services
 ```bash
   /usr/bin/rr serve -c .rr.dev.yaml --debug
 ```
+
+
+##Troubleshooting
+
+<details>
+  <summary>If postgres not started?</summary>
+
+  ```bash
+   chmod +x devops/build/postgres/init_script/multiple-databases.sh 
+   ```
+</details>

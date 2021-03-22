@@ -5,8 +5,23 @@ services:
       context: ../../../
       dockerfile: devops/build/php/Dockerfile
     ports:
-      - 8080:80
+      - 8080:8080
     env_file:
       - ../envs/local.env
+    environment:
+      POSTGRES_DB: "task-service"
+    links:
+      - postgres
     volumes:
       - "./../../../project/task-service:/var/www/project:cached"
+
+  postgres:
+    image: postgres:latest
+    ports:
+    - 5555:5432
+    volumes:
+      - ../../build/postgres/init_script:/docker-entrypoint-initdb.d
+    env_file:
+      - ../envs/local.env
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES="task-service","account-service"
